@@ -64,32 +64,46 @@ long	*append_long(long *stack, long thing)
 	return (free(stack), ptr);
 }
 
-void	free_split(char ***arr)
+void	free_split(char **arr)
 {
 	size_t	i;
 
 	i = 0;
-	if (*arr)
+	if (arr)
 	{
-		while(*arr[i])
+		while(arr[i])
 		{
-			free(*arr[i]);
+			free(arr[i]);
 			i ++;
 		}
-		free(*arr);
-		*arr = NULL;
+		free(arr);
 	}
 }
 
 char	*ft_strjoinf1(char *s1, char *s2)
 {
 	char	*fin;
+	size_t	i;
 
-	fin = ft_strjoin(s1, s2);
+	if (s1 == NULL)
+		return(ft_strdup(s2));
+	i = 0;
+	fin = ft_calloc(ft_strlen(s1) + ft_strlen(s2), 1);
+	while(s1[i])
+	{
+		fin[i] = s1[i];
+		i ++;
+	}
+	while(s2[i])
+	{
+		fin[i] = s2[i - ft_strlen(s1)];
+		i ++;
+	}
+	fin[i] = 0 ;
 	return (free(s1), fin);
 }
 
-char	**read_fromt_stdin(void)
+char	**read_from_stdin(void)
 {
 	size_t	i;
 	char	buff[1024];
@@ -97,6 +111,7 @@ char	**read_fromt_stdin(void)
 	char	**arr;
 	ssize_t	read_stuff;
 
+	i = 0;
 	str = NULL;
 	while (1)
 	{
@@ -110,7 +125,7 @@ char	**read_fromt_stdin(void)
 		if (str == NULL)
 			return (NULL);
 	}
-	arr  = ft_split(str, ' ');
+	printf("%s", str);
 	return (arr);
 }
 
@@ -140,7 +155,7 @@ char	**formating_input(int argc, char **argv)
 			i ++;
 		}
 	}
-	return (arr)
+	return (arr);
 }
 
 int main(int argc, char **argv)
@@ -150,7 +165,7 @@ int main(int argc, char **argv)
 	char	**arr;
 	size_t j;
 
-	j = 0
+	j = 0;
 	arr = formating_input(argc, argv);
 	if (arr == NULL)
 		return (1); //print error\n
