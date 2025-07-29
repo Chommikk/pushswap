@@ -79,13 +79,34 @@ long	get_index(long *arr, long j)
 	return (i);
 }
 
+int	fill_struct(t_num ***stacka, long *arr)
+{
+	size_t	i;
+	t_num	*element;
+	long	*sorted;
+
+	i = 0;
+	sorted = buble_sort(arr);
+	if (sorted == NULL)
+		return (free(*stacka), free(arr), 0);
+	while(arr[i] != (long)INT_MIN - 1)
+	{
+		element = ft_calloc(sizeof(t_num), 1);
+		if (element == NULL)
+			return (free_arr(*stacka), free(arr), free(sorted), 0);
+		element->org_nbr = arr[i];
+		element->expected = get_index(sorted, arr[i]);
+		(*stacka)[i] = element;
+		i++;
+	}
+	return (free(sorted), 1);
+}
+
 void	sort(long *arr)
 {
 	t_num	**stacka;
 	t_num	**stackb;
-	t_num	*element;
 	size_t	i;
-	long	*soret;
 
 	i = 0;
 	while (arr[i] != (long)INT_MIN -1)
@@ -94,21 +115,9 @@ void	sort(long *arr)
 	stackb = ft_calloc(sizeof(t_num **), i + 1);
 	if (stacka == NULL || stackb == NULL)
 		return (free(stacka), free(stackb), free(arr), put_error(), exit(1));
-	i = 0;
-	soret = buble_sort(arr);
-	if (soret == NULL)
-		return (free(stacka), free(stackb), free(arr), put_error(), exit(1));
-	while(arr[i] != (long)INT_MIN - 1)
-	{
-		element = ft_calloc(sizeof(t_num), 1);
-		if (element == NULL)
-			return (free_arr(stacka), free_arr(stackb), free(arr), free(soret), put_error(), exit(1));
-		element->org_nbr = arr[i];
-		element->expected = get_index(soret, arr[i]);
-		stacka[i] = element;
-		i++;
-	}
-	return (free_arr(stacka), free_arr(stackb), free(arr), free(soret), exit(1));
+	if (fill_struct(&stacka, arr) == 0)
+		return (free(stackb), put_error(), exit(1));
+	return (free_arr(stacka), free_arr(stackb), free(arr), exit(1));
 }
 
 int main(int argc, char **argv)

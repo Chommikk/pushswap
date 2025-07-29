@@ -53,15 +53,13 @@ long	satoi_safe(char *str)
 	while (str[i] && str[i] <= '9' && str[i] >= '0')
 	{
 		number = number * 10 + str[i] - '0';
-		if ((pon == 1 && number > (long)INT_MAX) || (pon == -1 && number < (long)INT_MIN))
+		if ((pon == 1 && number > (long)INT_MAX) || (pon == -1 &&  pon * number < (long)INT_MIN))
 			return ((long)INT_MAX + 1);
 		i ++;
 	}
 	if (str[i])
 		return ((long)INT_MAX + 1);
 	number = number * pon;
-	if ((pon == 1 && number > (long)INT_MAX) || (pon == -1 && number < (long)INT_MIN))
-		return ((long)INT_MAX + 1);
 	return (number);
 }
 
