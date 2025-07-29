@@ -6,7 +6,7 @@
 #    By: mchoma <mchoma@student.42vienna.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/01 12:26:33 by mchoma            #+#    #+#              #
-#    Updated: 2025/07/29 13:22:45 by mchoma           ###   ########.fr        #
+#    Updated: 2025/07/29 14:04:57 by mchoma           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ $(NAME): $(OBJ)
 
 
 %.o : %.c libft.h
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c   $< -o $@
 	
 clean :
 	rm -f $(OBJ) $(BOBJ) bonus
@@ -40,7 +40,7 @@ re : fclean all
 
 
 test: 
-	$(CC) $(CFLAGS)  $(OBJ) libft.a -o $(NAME)
+	cc -Wall -Wextra *.c libft.a -g -o $(NAME)
 	
 bonus : $(BOBJ) $(NAME)
 	ar rsc $(NAME) $(BOBJ)

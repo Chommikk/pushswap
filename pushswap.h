@@ -6,10 +6,11 @@
 /*   By: mchoma <mchoma@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:03:02 by mchoma            #+#    #+#             */
-/*   Updated: 2025/07/29 13:15:43 by mchoma           ###   ########.fr       */
+/*   Updated: 2025/07/29 15:15:41 by mchoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//smallest is index 0 and that is also top
 #ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 
@@ -17,11 +18,18 @@
 # include <stdlib.h>
 # include <limits.h>
 
+typedef struct s_num
+{
+	size_t	expected;
+	long	org_nbr;
+}	t_num;
 
 /*takes array of malloced strings and atoi tham to a array of longs int 
 INT_MIN -1  is end of array INT_MAX + 1 is invalid valu
 frees the strings*/
 long	*split_to_arr(char **arr);
+long	*buble_sort(long *arr);
+void	free_arr(void *arr);
 long	satoi_safe(char *str);
 //end of array is (long)INT_MIN - 1
 long	*append_long(long *stack, long thing);
