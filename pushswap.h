@@ -35,5 +35,18 @@ long	satoi_safe(char *str);
 long	*append_long(long *stack, long thing);
 void	free_split(char **arr);
 char	*ft_strjoinf1(char *s1, char *s2);
-void	put_error();
+void	put_error();void	sa(t_num **a, t_num **b, char *str);
+void	sb(t_num **a, t_num **b, char *str);
+void	ss(t_num **a, t_num **b, char *str);
+void	pa(t_num **a, t_num **b, char *str);
+void	pb(t_num **a, t_num **b, char *str);
+void	ra(t_num **a, t_num **b, char *str);
+void	rb(t_num **a, t_num **b, char *str);
+void	rr(t_num **a, t_num **b, char *str);
+void	rra(t_num **a, t_num **b, char *str);
+void	rrb(t_num **a, t_num **b, char *str);
+void	rrr(t_num **a, t_num **b, char *str);
+void	pull_arr(t_num **arr, size_t i);
+void	push_arr(t_num **arr, size_t i);
+
 #endif
