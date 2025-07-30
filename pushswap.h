@@ -29,9 +29,11 @@ INT_MIN -1  is end of array INT_MAX + 1 is invalid valu
 frees the strings*/
 long	*split_to_arr(char **arr);
 long	*buble_sort(long *arr);
+size_t	ft_pow(size_t x, size_t y);
 void	free_arr(t_num **arr);
 long	satoi_safe(char *str);
 //end of array is (long)INT_MIN - 1
+size_t	sq_rt(size_t x, size_t y);
 long	*append_long(long *stack, long thing);
 void	free_split(char **arr);
 char	*ft_strjoinf1(char *s1, char *s2);

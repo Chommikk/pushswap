@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 #include "pushswap.h"
 #include "libft.h"
+#include <stdio.h> //delete
 
 void	radix_alg(t_num **a, t_num **b, char **str, size_t scale)
 {
@@ -21,37 +22,35 @@ void	radix_alg(t_num **a, t_num **b, char **str, size_t scale)
 		size++;
 	while(size)
 	{
-		if (a[0]->expected % scale == 0)
+		if ((a[0]->expected & (1 << scale)) == 0)
 			pb(a, b, str);
 		else
 			ra(a, b, str);
 		size --;
 	}
 	while(b[0])
-	{
 		pa(a, b, str);
-	}
 }
 
 void	radix(t_num **a, t_num **b, char *str)
 {
 	size_t	size;
 	size_t	scale;
-	/*
-	scale = 2;
+
+	scale = 0;
 	size = 0;
 	while(a[size])
 		size++;
-	while(scale / 2 < size)
+	size = sq_rt(size, 2);
+	while(scale < size)
 	{
 		radix_alg(a, b, &str, scale);
-		scale = scale * 2;
+		scale ++;
 	}
-	*/
-	radix_alg(a, b, &str, scale);
 	ft_putstr_fd(str, 1);
 	free(str);
-	free_arr(a);
-	free_arr(b);
+	// free_arr(a);
+	// printf("----\n");
+	// free_arr(b);
 	exit(1);
 }

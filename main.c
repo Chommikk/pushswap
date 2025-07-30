@@ -36,7 +36,7 @@ char	**formating_input(int argc, char **argv)
 		{
 			arr[i]  = ft_strdup(argv[i + 1]);
 			if (arr[i] == NULL)
-				return (put_error(), free_arr(arr), NULL);
+				return (put_error(), free_arr((t_num **)arr), NULL);
 			i ++;
 		}
 	}
@@ -62,6 +62,8 @@ int	double_check(long *arr)
 		}
 		i ++;
 	}
+	if (i == 0)
+		return (0);
 	return (1);
 }
 
@@ -150,7 +152,7 @@ int main(int argc, char **argv)
 		return (0);
 	arr = formating_input(argc, argv);
 	if (arr == NULL)
-		return (put_error(), 1);
+		return (1);
 	stack = split_to_arr(arr);
 	if (stack == NULL)
 		return (put_error(), 1);

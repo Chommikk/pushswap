@@ -23,6 +23,31 @@ void	put_error()
 {
 	put_str_error("Error\n");
 }
+//x to the power of y
+size_t	ft_pow(size_t x, size_t y)
+{
+	if (y == 0)
+		return (1);
+	while (y)
+	{
+		x = x * x;
+		y --;
+	}
+	return (x);
+}
+
+size_t	sq_rt(size_t x, size_t y)
+{
+	size_t	i;
+	
+	i = 0;
+	while (x)
+	{
+		x = x / y;
+		i ++;
+	}
+	return (i);
+}
 
 void	free_arr(t_num **arr)
 {

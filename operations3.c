@@ -47,23 +47,9 @@ void	rra(t_num **a, t_num **b, char **str)
 	while (a[i])
 		i++;
 	tmp = a[i - 1];
-	// printf("<|%lu|>\n", tmp->org_nbr);
 	a[i - 1] = NULL;
-// printf("%lu == i\n", i);
-	// i = 0;
-	// while(a[i])
-	// {
-		// printf("\\|%lu|/\n", a[i]->org_nbr);
-		// i ++;
-	// }
 	push_arr(a);
 	a[0] = tmp;
-	i = 0;
-	while(a[i])
-	{
-		printf("|%lu|\n", a[i]->org_nbr);
-		i ++;
-	}
 }
 
 void	rrr(t_num **a, t_num **b, char **str)
