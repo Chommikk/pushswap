@@ -102,7 +102,7 @@ int	fill_struct(t_num ***stacka, long *arr)
 	return (free(sorted), 1);
 }
 
-void	sort(long *arr)
+void	initialize(long *arr)
 {
 	t_num	**stacka;
 	t_num	**stackb;
@@ -117,6 +117,7 @@ void	sort(long *arr)
 		return (free(stacka), free(stackb), free(arr), put_error(), exit(1));
 	if (fill_struct(&stacka, arr) == 0)
 		return (free(stackb), put_error(), exit(1));
+	sort(stacka, stackb);
 	return (free_arr(stacka), free_arr(stackb), free(arr), exit(1));
 }
 
@@ -139,12 +140,6 @@ int main(int argc, char **argv)
 	if (double_check(stack) == 0)
 		return (free(stack), put_error(), 1);
 	
-	sort(stack);
-	while(stack && stack[j] != (long)INT_MIN - 1)
-	{
-		printf("%li \n", stack[j]);
-		j ++;
-	}
-	return (free(stack), 0);
-	
+	initialize(stack);
+	return (0);
 }

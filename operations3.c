@@ -21,7 +21,7 @@ void	rrb(t_num **a, t_num **b, char *str)
 	{
 		str = ft_strjoinf1(str, "rrb\n");
 		if (str == NULL)
-			return (free_arr(a), free_arr(b));
+			return (free_arr(a), free_arr(b), put_error(), exit(1));
 	}
 	while (b[i])
 		b++;
@@ -41,7 +41,7 @@ void	rra(t_num **a, t_num **b, char *str)
 	{
 		str = ft_strjoinf1(str, "rra\n");
 		if (str == NULL)
-			return (free_arr(a), free_arr(b));
+			return (free_arr(a), free_arr(b), put_error(), exit(1));
 	}
 	while (a[i])
 		a++;
@@ -57,7 +57,7 @@ void	rrr(t_num **a, t_num **b, char *str)
 	{
 		str = ft_strjoinf1(str, "rrr\n");
 		if (str == NULL)
-			return (free_arr(a), free_arr(b));
+			return (free_arr(a), free_arr(b), put_error(), exit(1));
 	}
 	rra(a, b, NULL);
 	rrb(a, b, NULL);

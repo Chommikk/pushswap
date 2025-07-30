@@ -19,7 +19,7 @@ void	sa(t_num **a, t_num **b, char *str)
 	{
 		str = ft_strjoinf1(str, "sa\n");
 		if (str == NULL)
-			return (free_arr(a), free_arr(b));
+			return (free_arr(a), free_arr(b), put_error(), exit(1));
 		tmp = a[0];
 		a[0] = a[1];
 		a[1] = tmp;
@@ -36,7 +36,7 @@ void	sb(t_num **a, t_num **b, char *str)
 		{
 			str = ft_strjoinf1(str, "sb\n");
 			if (str == NULL)
-				return (free_arr(a), free_arr(b));
+				return (free_arr(a), free_arr(b), put_error(), exit(1));
 		}
 		tmp = b[0];
 		b[0] = b[1];
@@ -50,7 +50,7 @@ void	ss(t_num **a, t_num **b, char *str)
 	{
 		str = ft_strjoinf1(str, "ss\n");
 		if (str == NULL)
-			return (free_arr(a), free_arr(b));
+			return (free_arr(a), free_arr(b), put_error(), exit(1));
 	}
 	sa(a, b, NULL);
 	sb(a, b, NULL);
