@@ -6,7 +6,7 @@
 /*   By: mchoma <mchoma@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:00:37 by mchoma            #+#    #+#             */
-/*   Updated: 2025/07/29 15:15:26 by mchoma           ###   ########.fr       */
+/*   Updated: 2025/07/30 13:23:59 by mchoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,22 @@ int	fill_struct(t_num ***stacka, long *arr)
 	return (free(sorted), 1);
 }
 
+void	sort(t_num **a, t_num **b)
+{
+	char	*str;
+
+	str = ft_strdup("");
+	if (str == NULL)
+	{
+		free_arr(a);
+		free_arr(b);
+		put_error();
+		exit (0);
+	}
+	
+	radix(a, b, str);
+}
+
 void	initialize(long *arr)
 {
 	t_num	**stacka;
@@ -111,14 +127,15 @@ void	initialize(long *arr)
 	i = 0;
 	while (arr[i] != (long)INT_MIN -1)
 		i++;
-	stacka = ft_calloc(sizeof(t_num **), i + 1);
-	stackb = ft_calloc(sizeof(t_num **), i + 1);
+	stacka = ft_calloc(sizeof(t_num **), i + 2);
+	stackb = ft_calloc(sizeof(t_num **), i + 2);
 	if (stacka == NULL || stackb == NULL)
 		return (free(stacka), free(stackb), free(arr), put_error(), exit(1));
 	if (fill_struct(&stacka, arr) == 0)
 		return (free(stackb), put_error(), exit(1));
+	free(arr);
 	sort(stacka, stackb);
-	return (free_arr(stacka), free_arr(stackb), free(arr), exit(1));
+	return (exit(1));
 }
 
 int main(int argc, char **argv)

@@ -107,25 +107,11 @@ void	free_split(char **arr)
 	}
 }
 
-char	*ft_strjoinf1(char *s1, char *s2)
+char	*ft_strjoinf1(char *fr, char *str)
 {
-	char	*fin;
-	size_t	i;
+	char	*tmp;
 
-	if (s1 == NULL)
-		return(ft_strdup(s2));
-	i = 0;
-	fin = ft_calloc(ft_strlen(s1) + ft_strlen(s2), 1);
-	while(s1[i])
-	{
-		fin[i] = s1[i];
-		i ++;
-	}
-	while(s2[i])
-	{
-		fin[i] = s2[i - ft_strlen(s1)];
-		i ++;
-	}
-	fin[i] = 0 ;
-	return (free(s1), fin);
+	tmp = ft_strjoin(fr, str);
+	free(fr);
+	return (tmp);
 }

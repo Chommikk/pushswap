@@ -11,19 +11,8 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "pushswap.h" // delete later
 #include <stdio.h> //delete later
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	if (str == NULL)
-		return (0);
-	i = 0;
-	while(str[i])
-		i ++;
-	return (i);
-}
 
 void	put_str_error(char *str)
 {
@@ -35,7 +24,7 @@ void	put_error()
 	put_str_error("Error\n");
 }
 
-void	free_arr(void *arr)
+void	free_arr(t_num **arr)
 {
 	size_t	i;
 
@@ -44,6 +33,7 @@ void	free_arr(void *arr)
 		return;
 	while(((char **)arr)[i])
 	{
+		printf("%li\n", ((t_num**)arr)[i]->org_nbr);
 		free(((char **)arr)[i]);
 		i ++;
 	}

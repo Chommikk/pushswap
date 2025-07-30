@@ -10,55 +10,73 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
+#include <stdio.h> //remove
 
-void	rrb(t_num **a, t_num **b, char *str)
+void	rrb(t_num **a, t_num **b, char **str)
 {
 	t_num	*tmp;
 	size_t	i;
 
 	i = 0;
-	if (str != NULL)
+	if (*str != NULL)
 	{
-		str = ft_strjoinf1(str, "rrb\n");
-		if (str == NULL)
+		*str = ft_strjoinf1(*str, "rrb\n");
+		if (*str == NULL)
 			return (free_arr(a), free_arr(b), put_error(), exit(1));
 	}
 	while (b[i])
-		b++;
+		i++;
 	tmp = b[i];
 	b[i] = NULL;
-	push_arr(b, 0);
+	push_arr(b);
 	b[0] = tmp;
 }
 
-void	rra(t_num **a, t_num **b, char *str)
+void	rra(t_num **a, t_num **b, char **str)
 {
 	t_num	*tmp;
 	size_t	i;
 
 	i = 0;
-	if (str != NULL)
+	if (*str != NULL)
 	{
-		str = ft_strjoinf1(str, "rra\n");
-		if (str == NULL)
+		*str = ft_strjoinf1(*str, "rra\n");
+		if (*str == NULL)
 			return (free_arr(a), free_arr(b), put_error(), exit(1));
 	}
 	while (a[i])
-		a++;
-	tmp = a[i];
-	a[i] = NULL;
-	push_arr(a, 0);
+		i++;
+	tmp = a[i - 1];
+	// printf("<|%lu|>\n", tmp->org_nbr);
+	a[i - 1] = NULL;
+// printf("%lu == i\n", i);
+	// i = 0;
+	// while(a[i])
+	// {
+		// printf("\\|%lu|/\n", a[i]->org_nbr);
+		// i ++;
+	// }
+	push_arr(a);
 	a[0] = tmp;
+	i = 0;
+	while(a[i])
+	{
+		printf("|%lu|\n", a[i]->org_nbr);
+		i ++;
+	}
 }
 
-void	rrr(t_num **a, t_num **b, char *str)
+void	rrr(t_num **a, t_num **b, char **str)
 {
-	if (str != NULL)
+	char	*s;
+
+	s = NULL;
+	if (*str != NULL)
 	{
-		str = ft_strjoinf1(str, "rrr\n");
-		if (str == NULL)
+		*str = ft_strjoinf1(*str, "rrr\n");
+		if (*str == NULL)
 			return (free_arr(a), free_arr(b), put_error(), exit(1));
 	}
-	rra(a, b, NULL);
-	rrb(a, b, NULL);
+	rra(a, b, &s);
+	rrb(a, b, &s);
 }

@@ -6,7 +6,7 @@
 /*   By: mchoma <mchoma@student.42vienna.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 13:03:02 by mchoma            #+#    #+#             */
-/*   Updated: 2025/07/29 15:15:41 by mchoma           ###   ########.fr       */
+/*   Updated: 2025/07/30 13:23:54 by mchoma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,26 @@ INT_MIN -1  is end of array INT_MAX + 1 is invalid valu
 frees the strings*/
 long	*split_to_arr(char **arr);
 long	*buble_sort(long *arr);
-void	free_arr(void *arr);
+void	free_arr(t_num **arr);
 long	satoi_safe(char *str);
 //end of array is (long)INT_MIN - 1
 long	*append_long(long *stack, long thing);
 void	free_split(char **arr);
 char	*ft_strjoinf1(char *s1, char *s2);
-void	put_error();void	sa(t_num **a, t_num **b, char *str);
-void	sb(t_num **a, t_num **b, char *str);
-void	ss(t_num **a, t_num **b, char *str);
-void	pa(t_num **a, t_num **b, char *str);
-void	pb(t_num **a, t_num **b, char *str);
-void	ra(t_num **a, t_num **b, char *str);
-void	rb(t_num **a, t_num **b, char *str);
-void	rr(t_num **a, t_num **b, char *str);
-void	rra(t_num **a, t_num **b, char *str);
-void	rrb(t_num **a, t_num **b, char *str);
-void	rrr(t_num **a, t_num **b, char *str);
-void	pull_arr(t_num **arr, size_t i);
-void	push_arr(t_num **arr, size_t i);
+void	put_error();
+void	radix(t_num **a, t_num **b, char *str);
+void	sa(t_num **a, t_num **b, char **str);
+void	sb(t_num **a, t_num **b, char **str);
+void	ss(t_num **a, t_num **b, char **str);
+void	pa(t_num **a, t_num **b, char **str);
+void	pb(t_num **a, t_num **b, char **str);
+void	ra(t_num **a, t_num **b, char **str);
+void	rb(t_num **a, t_num **b, char **str);
+void	rr(t_num **a, t_num **b, char **str);
+void	rra(t_num **a, t_num **b, char **str);
+void	rrb(t_num **a, t_num **b, char **str);
+void	rrr(t_num **a, t_num **b, char **str);
+void	pull_arr(t_num **arr);
+void	push_arr(t_num **arr);
 
 #endif
