@@ -20,7 +20,8 @@ FILES = main.c\
 		operations.c\
 		operations2.c\
 		operations3.c\
-		radix.c
+		radix.c\
+		edgecases.c
 OBJ = $(FILES:.c=.o)
 
 

@@ -104,9 +104,20 @@ int	fill_struct(t_num ***stacka, long *arr)
 	return (free(sorted), 1);
 }
 
+size_t	stack_len(t_num **a)
+{
+	size_t	i;
+
+	i = 0;
+	while (a[i])
+		i ++;
+	return (i);
+}
+
 void	sort(t_num **a, t_num **b)
 {
 	char	*str;
+	size_t	len;
 
 	str = ft_strdup("");
 	if (str == NULL)
@@ -116,7 +127,17 @@ void	sort(t_num **a, t_num **b)
 		put_error();
 		exit (0);
 	}
-	
+	len = stack_len(a);
+	if (len <= 3)
+	{
+		three(a, b, &str);
+		exit(1);
+	}
+	if (len <= 6)
+	{
+		six(a, b, &str);
+		exit(1);
+	}
 	radix(a, b, str);
 }
 

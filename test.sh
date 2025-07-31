@@ -32,5 +32,8 @@ random_numbers=${random_numbers% }
 
 ./push_swap ${random_numbers} | ./checker ${random_numbers}
 ./push_swap ${random_numbers} | wc -l
-#./push_swap ${random_numbers}
+#funcheck -ac ./push_swap ${random_numbers}
+./push_swap ${random_numbers}
+./pushswap ${random_numbers}
 
+echo ${random_numbers}

@@ -49,8 +49,8 @@ void	radix(t_num **a, t_num **b, char *str)
 	}
 	ft_putstr_fd(str, 1);
 	free(str);
-	// free_arr(a);
+	free_arr(a);
 	// printf("----\n");
-	// free_arr(b);
+	free_arr(b);
 	exit(1);
 }

@@ -28,8 +28,12 @@ typedef struct s_num
 INT_MIN -1  is end of array INT_MAX + 1 is invalid valu
 frees the strings*/
 long	*split_to_arr(char **arr);
+void	three(t_num **a, t_num **b, char **str);
 long	*buble_sort(long *arr);
+size_t	stack_len(t_num **a);
+int	sort_check(t_num **a, t_num **b);
 size_t	ft_pow(size_t x, size_t y);
+void	six(t_num **a, t_num **b, char **str);
 void	free_arr(t_num **arr);
 long	satoi_safe(char *str);
 //end of array is (long)INT_MIN - 1
