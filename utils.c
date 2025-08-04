@@ -58,7 +58,7 @@ void	free_arr(t_num **arr)
 		return;
 	while(((char **)arr)[i])
 	{
-		printf("%li\n", ((t_num**)arr)[i]->org_nbr);
+		// printf("%li\n", ((t_num**)arr)[i]->org_nbr);
 		free(((char **)arr)[i]);
 		i ++;
 	}
