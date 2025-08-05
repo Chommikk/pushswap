@@ -13,15 +13,22 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I./libft.h
 FILES = main.c\
 		utils.c\
+		utils2.c\
 		inputcheck.c\
 		operations.c\
 		operations2.c\
 		operations3.c\
 		radix.c\
-		edgecases.c
+		edgecases.c\
+		ft_calloc.c\
+		ft_putstr_fd.c\
+		ft_strjoin.c\
+		ft_strlen.c\
+		ft_split.c\
+		ft_strdup.c\
+		ft_substr.c
 OBJ = $(FILES:.c=.o)
 
 
@@ -36,10 +43,10 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -c   $< -o $@
 	
 clean :
-	rm -f $(OBJ) $(BOBJ) bonus
+	rm -f $(OBJ) $(BOBJ)
 
 fclean : clean
-	rm -f $(NAME) bonus
+	rm -f $(NAME)
 
 re : fclean all
 

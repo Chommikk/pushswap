@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "pushswap.h"
-#include <stdio.h> //remove
 
 void	pa(t_num **a, t_num **b, char **str)
 {
@@ -85,7 +84,7 @@ void	rb(t_num **a, t_num **b, char **str)
 void	rr(t_num **a, t_num **b, char **str)
 {
 	char	*s;
-	
+
 	s = NULL;
 	if (*str != NULL)
 	{

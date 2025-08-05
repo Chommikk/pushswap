@@ -70,7 +70,7 @@ void	push_arr(t_num **arr)
 	i = 0;
 	while (arr[i])
 		i++;
-	while(i)
+	while (i)
 	{
 		arr[i] = arr[i - 1];
 		i --;
@@ -80,10 +80,9 @@ void	push_arr(t_num **arr)
 void	pull_arr(t_num **arr)
 {
 	size_t	i;
-	t_num	*tmp;
 
 	i = 0;
-	while(arr[i])
+	while (arr[i])
 	{
 		arr[i] = arr[i + 1];
 		i ++;

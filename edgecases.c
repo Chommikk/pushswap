@@ -13,6 +13,16 @@
 #include "pushswap.h"
 #include "libft.h"
 
+size_t	stack_len(t_num **a)
+{
+	size_t	i;
+
+	i = 0;
+	while (a[i])
+		i ++;
+	return (i);
+}
+
 void	rthreeb(t_num **a, t_num **b, char **str)
 {
 	size_t	i;
